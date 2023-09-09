@@ -2,11 +2,16 @@
 
 Instructions for making and merging developer branches:
 
-- Ensure frontend branch is up to date with Dev
-- Git checkout -b <your-name>/<featureName>
-- Finish feature and commit
-- Git push origin <your-name>/<featureName>
-- Git checkout initial-frontend
-- Git pull origin initial-frontend
-- Git merge <your-name>/<featureName>
-- Add, commit, -> git push origin initial-frontend
+Making the branch:
+- Ensure frontend branch is up to date with Dev (git pull origin dev)
+- git checkout -b *your-name*/*featureName*
+
+Merging the branch: 
+- git checkout dev 
+- git pull origin dev
+- git checkout -b *your-name*/*featureName*
+- git merge dev
+- Resolve any conflicts
+- Git push origin *your-name*/*featureName*
+
+Then make a pull request
