@@ -2,9 +2,9 @@
   "name": "kubespyglass",
   "version": "1.0.0",
   "description": "",
-  "main": "vite.config.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "concurrently \"vite --host\" \"nodemon src/server/server.js\"",
+    "dev": "concurrently \"vite --host\" \"nodemon server/server.js\"",
     "start": "nodemon src /server/server.js",
     "build": "vite build",
     "preview": "vite preview"
@@ -21,7 +21,10 @@
     "vite-plugin-terminal": "^1.1.0"
   },
   "dependencies": {
+    "@emotion/styled": "^11.11.0",
     "@kubernetes/client-node": "^0.18.1",
+    "@mui/icons-material": "^5.14.8",
+    "@mui/material": "^5.14.8",
     "axios": "^1.5.0",
     "bcrypt": "^5.1.1",
     "concurrently": "^8.2.1",
