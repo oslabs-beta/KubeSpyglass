@@ -9,9 +9,9 @@ const MainContainer = () => {
       <div style={{ display: 'flex', borderTop: '1px solid white' }}>
         <LeftNavBar />
       </div>
+      <iframe src='https://eltoussaint.grafana.net/dashboard/snapshot/EYeMH2uPQR0NI9XdLI737dQeSXyfEjdC'></iframe>
     </div>
   );
 };
 
 export default MainContainer;
-
