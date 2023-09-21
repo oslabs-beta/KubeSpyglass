@@ -1,4 +1,4 @@
-const { spawn, spawnSync} = require('child_process');
+const { spawn, spawnSync } = require('child_process');
 const installController = {
   installPrometheus: (req, res, next) => {
     //Spawnsync will execute the listed command asynch. Will require the user to install helm previously.
@@ -23,9 +23,8 @@ const installController = {
     return next();
   },
 
-  promStart: (req, res, next) =>
-  {
-    //Look for all pods currently running and take the standard output 
+  promStart: (req, res, next) => {
+    //Look for all pods currently running and take the standard output
     const podList = spawnsync('kubectl', ['get', 'pods']);
     //Run through the output, taking each individual line into a different index of an array to look through
     const podArray = podList.stdout.split('\n');
@@ -43,28 +42,28 @@ const installController = {
     });
 
     //Apply new config map
-     spawnSync('kubectl apply -f prometheus-grafana.yaml', {
-       stdio: 'inherit',
-       shell: true,
-     });
+    spawnSync('kubectl apply -f prometheus-grafana.yaml', {
+      stdio: 'inherit',
+      shell: true,
+    });
     //Delete the previous pod so it can be redeployed
-     spawnSync(`kubectl delete pod ${targetPod}`, {
-       stdio: 'inherit',
-       shell: true,
-     });
-    
+    spawnSync(`kubectl delete pod ${targetPod}`, {
+      stdio: 'inherit',
+      shell: true,
+    });
+
     return next();
   },
 
   portForward: (req, res, next) => {
     //Set up the Prom-graf to forward to port 3000 to allow us to grab its info
+
     spawn(`kubectl port-forward service/prometheus-grafana 3000:80`, {
       shell: true,
     });
 
     return next();
-  }
-
+  },
 };
 
 module.exports = installController;

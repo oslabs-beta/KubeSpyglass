@@ -2,9 +2,9 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = 4000;
 
-const messageRouter = require('./Routers/metricRouter');
+const metricRouter = require('./routers/metricRouter');
 
 app.use(express.json());
 
@@ -24,8 +24,7 @@ app.get('/', (req, res) => {
 /**
  * allow access to router
  */
-app.use('/', metricRouter);
-
+app.use('/setup', metricRouter);
 
 /**
  * Global Error Handler
@@ -45,4 +44,4 @@ app.use((err, req, res, next) => {
  */
 app.listen(PORT, () => console.log(`server is listening on port ${PORT}`));
 
-module.exports = app;     
+module.exports = app;
