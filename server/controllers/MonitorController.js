@@ -25,10 +25,21 @@ MonitorController.getMetrics = async (req, res, next) => {
 }
 
 MonitorController.getStructure = async (req, res, next) => {
-  try{
-    const url = req.body.server;
-    const result = await axios.get(url + 'something');
-    res.locals.structure_data = await result.body.json();
+  try {
+    const url = req.params.url;
+    let result = await axios.get('http://' + url + '/api/v1/nodes/');
+    //console.log(result.data.items);
+    res.locals.structure_data = {};
+    let items = [];
+    result.data.items.map((el) => items.push( { name: el.metadata.name, namespace: el.metadata.namespace, spec: el.spec}));
+    res.locals.structure_data.nodes = items;
+    result = await axios.get('http://' + url + '/api/v1/pods/');
+    console.log(result.data.items)
+    items = [];
+    result.data.items.map((el) => items.push({name: el.metadata.name, namespace: el.metadata.namespace, spec: el.spec}));
+    res.locals.structure_data.pods = items;
+    result = await axios.get('http://' + url + '/api/v1/pods/')
+    return next();
   }
   catch (err){
     return next(err);
