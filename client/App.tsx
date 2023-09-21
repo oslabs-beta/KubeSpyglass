@@ -10,11 +10,11 @@
  */
 
 import React from 'react';
-import MainContainer from './containers/MainContainer';
+import NavContainer from './containers/NavContainer';
 
-const App = () => (
+const App: React.FC = () => (
   <div id="app">
-   <MainContainer />
+   <NavContainer />
   </div>
 );
 
