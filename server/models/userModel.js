@@ -10,6 +10,10 @@ const userSchema = new Schema({
   password: { type: String, required: true },
 });
 
-const User = mongoose.model('User', userSchema);
+const sessionSchema = new Schema({
+session: {type: String, required: true},
+})
 
-module.exports = User;
+const User = mongoose.model('User', userSchema);
+const Session = mongoose.model('Session', sessionSchema);
+module.exports = User, Session;
