@@ -32,6 +32,7 @@ const userController = {
             console.log(userPass);
             const passMatch = await bcrypt.compare(password, userPass);
             console.log(passMatch);
+            res.locals.success = passmatch;
             if (passMatch) {
                 res.locals.login="Login was successful"
             } else {
