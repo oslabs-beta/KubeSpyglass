@@ -5,9 +5,10 @@ const app = express();
 const PORT = 4000;
 
 const metricRouter = require('./routers/metricRouter');
-
+const db = require('server/db.js');
 app.use(express.json());
 
+//app.use('/', db);
 /**
  * enable use of cors to communicate with front end
  */
