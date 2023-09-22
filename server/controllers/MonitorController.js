@@ -34,11 +34,16 @@ MonitorController.getStructure = async (req, res, next) => {
     result.data.items.map((el) => items.push( { name: el.metadata.name, namespace: el.metadata.namespace, spec: el.spec}));
     res.locals.structure_data.nodes = items;
     result = await axios.get('http://' + url + '/api/v1/pods/');
-    console.log(result.data.items)
+    //console.log(result.data.items)
     items = [];
     result.data.items.map((el) => items.push({name: el.metadata.name, namespace: el.metadata.namespace, spec: el.spec}));
     res.locals.structure_data.pods = items;
-    result = await axios.get('http://' + url + '/api/v1/pods/')
+    result = await axios.get('http://' + url + '/api/v1/namespaces/');
+    const namespaces = []
+    result.data.items.map((el) => namespaces.push(el.metadata.name));
+    res.locals.structure_data.namespaces = namespaces;
+    result = await axios.get('http://' + url + '/api/v1/services/');
+    res.locals.structure_data.services = result.data.items;
     return next();
   }
   catch (err){
