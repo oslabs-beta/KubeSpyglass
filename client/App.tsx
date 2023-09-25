@@ -15,7 +15,7 @@ import StructureVisualizationContainer from './containers/StructureVisualization
 
 const App: React.FC = () => (
   <div id="app">
-   <NavContainer />
+   {/* <NavContainer /> */}
    <StructureVisualizationContainer />
   </div>
 );
