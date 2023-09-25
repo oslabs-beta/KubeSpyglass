@@ -25,13 +25,18 @@ const StyledListItem = styled(ListItem)({
   },
 });
 
-const LeftNavBar = () => {
-  const [podToggle, setPodToggle] = useState(false); 
-  const [serviceToggle, setServiceToggle] = useState(false); 
+// const LeftNavBar = () => {
+//   const [podToggle, setPodToggle] = useState(false); 
+//   const [serviceToggle, setServiceToggle] = useState(false); 
+
+const LeftNavBar: React.FC = () => {
+  const [podToggle, setPodToggle] = useState<boolean>(false);
+  const [serviceToggle, setServiceToggle] = useState<boolean>(false);
+
 
   const handlePodToggle = () => {
     setPodToggle(!podToggle); // Toggle the state
-  };
+  };  
 
   const handleServiceToggle = () => {
     setServiceToggle(!serviceToggle); // Toggle the state

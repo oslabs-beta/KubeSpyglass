@@ -2,7 +2,7 @@ import React from 'react';
 import TopNavBar from '../components/TopNavBar';
 import LeftNavBar from '../components/LeftNavBar';
 
-const MainContainer = () => {
+const NavContainer: React.FC = () => {
   return (
     <div>
       <TopNavBar />
@@ -13,5 +13,5 @@ const MainContainer = () => {
   );
 };
 
-export default MainContainer;
+export default NavContainer;
 
