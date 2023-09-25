@@ -27,12 +27,9 @@ const userController = {
         try {
             const { username, password } = req.body;
             const user = await User.findOne({ username: username });
-            console.log(user);
             userPass = user.password;
-            console.log(userPass);
             const passMatch = await bcrypt.compare(password, userPass);
-            console.log(passMatch);
-            res.locals.success = passmatch;
+            res.locals.success = passMatch;
             if (passMatch) {
                 res.locals.login="Login was successful"
             } else {
