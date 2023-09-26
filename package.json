@@ -4,8 +4,8 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
-    "dev": "concurrently \"vite --host\" \"nodemon server/server.js\"",
-    "start": "concurrently \"vite --host\" \"nodemon server/server.js\"",
+    "dev": "concurrently \"vite --host\" \"node server/server.js\"",
+    "start": "concurrently \"vite --host\" \"node server/server.js\"",
     "build": "vite build",
     "preview": "vite preview"
   },
