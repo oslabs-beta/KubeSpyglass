@@ -92,7 +92,12 @@ DBController.storeData = async (req, res, next) => {
 
 DBController.getData = async (req, res, next) => {
   try{
-    const results = await Data.find({});
+    const userId = req.cookies.session;
+    let results;
+    if(userId){
+      results = await Data.find({UserId: userId});
+    }
+    else results = await Data.find({});
     res.locals.results = results;
     return next();
   }
