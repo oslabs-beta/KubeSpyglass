@@ -6,13 +6,8 @@ const app = express();
 const PORT = 4000;
 
 const metricRouter = require('./routers/metricRouter');
-<<<<<<< HEAD
-const db = require('./db.js');
-
-=======
 const userRouter = require('./routers/userRouter');
 const db = require('./db.js');
->>>>>>> dev
 app.use(express.json());
 
 //app.use('/', db);
