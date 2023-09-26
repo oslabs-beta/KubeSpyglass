@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const MonitoringRouter = require('./routers/MonitoringRouter');
 
 const app = express();
 const PORT = 4000;
@@ -22,6 +23,8 @@ app.use(cors());
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/index.html'));
 });
+
+app.use('/monitoring', MonitoringRouter);
 
 /**
  * allow access to router
