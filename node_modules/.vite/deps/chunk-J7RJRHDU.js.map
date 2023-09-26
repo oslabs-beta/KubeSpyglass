@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../@mui/material/utils/useEventCallback.js", "../../@mui/material/utils/useIsFocusVisible.js"],
+  "sourcesContent": ["'use client';\n\nimport { unstable_useEventCallback as useEventCallback } from '@mui/utils';\nexport default useEventCallback;", "'use client';\n\nimport { unstable_useIsFocusVisible as useIsFocusVisible } from '@mui/utils';\nexport default useIsFocusVisible;"],
+  "mappings": ";;;;;;;;;;AAAA,IAGOA;AAHP;AAAA;AAAA;AAEA;AACA,IAAOA,4BAAQ;AAAA;AAAA;;;ACHf,IAGO;AAHP;AAAA;AAAA;AAEA;AACA,IAAO,4BAAQ;AAAA;AAAA;",
+  "names": ["useEventCallback_default"]
+}

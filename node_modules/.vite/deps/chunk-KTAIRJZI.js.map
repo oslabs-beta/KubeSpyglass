@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../@mui/base/composeClasses/index.js"],
+  "sourcesContent": ["export { unstable_composeClasses } from '@mui/utils';"],
+  "mappings": ";;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;",
+  "names": []
+}
