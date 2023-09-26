@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
+const cookieParser = require('cookie-parser')
 const MonitoringRouter = require('./routers/MonitoringRouter');
+
 
 const app = express();
 const PORT = 4000;
@@ -8,7 +10,8 @@ const PORT = 4000;
 const metricRouter = require('./routers/metricRouter');
 const userRouter = require('./routers/userRouter');
 const db = require('./db.js');
-app.use(express.json());
+app.use(express.json()); 
+app.use(cookieParser());
 
 //app.use('/', db);
 /**
