@@ -2,11 +2,39 @@ const Data = require('../models/dataModel');
 
 const DBController = {};
 
+
+const parseName = (string) => {
+  const result = {};
+  let sliceStart = 0;
+  let sliceEnd = 0;
+  for (let i = 0; i < string.length; i++){
+    if(string[i] === '{'){
+      result.metric = string.slice(sliceStart, i);
+      sliceStart = i + 1;
+    }
+    if(i === string.length - 1){
+      result.metric = string;
+    }
+    if(string[i] === '='){
+      sliceEnd = i;
+    }
+    if(string[i] === ','){
+      result[string.slice(sliceStart, sliceEnd)] = string.slice(sliceEnd + 2, i - 1);
+      sliceStart = i + 1;
+    }
+    if(string[i] === '}'){
+      result[string.slice(sliceStart, sliceEnd)] = string.slice(sliceEnd + 2, i - 1);
+    }
+  }
+  return result;
+}
+
+
 const parseData = (data) => {
   let i = 0;
   const result = [];
   for(string of data){
-    //console.log(i++, string);
+    console.log(i++, string);
     const strings = string.split('\n');
     const strs = [];
     for(let str of strings){
@@ -23,33 +51,19 @@ const parseData = (data) => {
   }
   result.pop();
   result.pop();
-  return result;
-}
-
-const parseName = (string) => {
-  const result = {};
-  let sliceStart = 0;
-  let sliceEnd = 0;
-  for (let i = 0; i < string.length; i++){
-    if(string[i] === '{'){
-      result.metric = string.slice(sliceStart, i);
-      sliceStart = i + 1;
-    }
-    if(string[i] === '='){
-      sliceEnd = i;
-    }
-    if(string[i] === ','){
-      result[string.slice(sliceStart, sliceEnd)] = string.slice(sliceEnd + 2, i - 1);
-      sliceStart = i + 1;
-    }
-    if(string[i] === '}'){
-      result[string.slice(sliceStart, sliceEnd)] = string.slice(sliceEnd + 2, i - 1);
-    }
-
-
+  const final = [];
+  for(item of result){
+    //console.log(item);
+    const formatted = parseName(item.name);
+    //console.log(formatted);
+    formatted.val = item.val;
+    formatted.altVal = item.otherVal;
+    final.push(formatted);
   }
-  return result;
+  //console.log(final);
+  return final;
 }
+
 
 //console.log(parseName("container_cpu_usage_seconds_total{container=\"kube-apiserver\",namespace=\"kube-system\",pod=\"kube-apiserver-kind-control-plane\"}"));
 
@@ -57,23 +71,16 @@ DBController.storeData = async (req, res, next) => {
   console.log('made it to storeData');
   //const userID = req.cookies.userID;
   try{
-    const array = parseData(res.locals.metrics_data);
+    const parsed = parseData(res.locals.metrics_data);
     //console.log(array);
     const userId = req.cookies.session;
     console.log('userid: ', userId);
-    const final = [];
-    for(item of array){
-      const formatted = parseName(item.name);
-      formatted.val = item.val;
-      formatted.altVal = item.otherVal;
-      final.push(formatted);
-    }
-    const newData = await Data.create({
-      userId: userId,
-      data: {dataArray: final}, 
-      time: Date.now(),   
-    })
-    res.locals.metrics_data = {data: final, time: Date.now(), userId: userId};
+    // const newData = await Data.create({
+    //   userId: userId,
+    //   data: {dataArray: parsed}, 
+    //   time: Date.now(),   
+    // })
+    res.locals.metrics_data = {data: parsed, time: Date.now(), userId: userId};
     return next();
   }
   catch (err){
