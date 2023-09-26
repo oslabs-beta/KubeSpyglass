@@ -6,7 +6,7 @@ const parseData = (data) => {
   let i = 0;
   const result = [];
   for(string of data){
-    console.log(i++, string);
+    //console.log(i++, string);
     const strings = string.split(' ');
     const strs = [];
     for(let str of strings){
