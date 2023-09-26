@@ -2,7 +2,7 @@
   "name": "kubespyglass",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
     "dev": "concurrently \"vite --host\" \"nodemon server/server.js\"",
     "start": "concurrently \"vite --host\" \"nodemon server/server.js\"",
