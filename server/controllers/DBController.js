@@ -34,7 +34,7 @@ const parseData = (data) => {
   let i = 0;
   const result = [];
   for(string of data){
-    console.log(i++, string);
+    //console.log(i++, string);
     const strings = string.split('\n');
     const strs = [];
     for(let str of strings){
@@ -75,11 +75,11 @@ DBController.storeData = async (req, res, next) => {
     //console.log(array);
     const userId = req.cookies.session;
     console.log('userid: ', userId);
-    // const newData = await Data.create({
-    //   userId: userId,
-    //   data: {dataArray: parsed}, 
-    //   time: Date.now(),   
-    // })
+    const newData = await Data.create({
+      userId: userId,
+      data: {dataArray: parsed}, 
+      time: Date.now(),   
+    })
     res.locals.metrics_data = {data: parsed, time: Date.now(), userId: userId};
     return next();
   }
