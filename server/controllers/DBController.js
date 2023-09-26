@@ -50,12 +50,13 @@ const parseName = (string) => {
       sliceEnd = i;
     }
     if(string[i] === ','){
-      result[string.slice(sliceStart, sliceEnd)] = string.slice(sliceEnd + 2, i-2);
+      result[string.slice(sliceStart, sliceEnd)] = string.slice(sliceEnd + 2, i - 1);
       sliceStart = i + 1;
     }
     if(string[i] === '}'){
-      result[string.slice(sliceStart, sliceEnd)] = string.slice(sliceEnd + 2, i -2)
+      result[string.slice(sliceStart, sliceEnd)] = string.slice(sliceEnd + 2, i - 1);
     }
+
 
   }
   return result;
@@ -69,7 +70,7 @@ DBController.storeData = async (req, res, next) => {
   try{
     const array = parseData(res.locals.metrics_data);
     const userId = req.cookies.session;
-    //console.log(data);
+    console.log('userid: ', userId);
     const final = [];
     for(item of array){
       const formatted = parseName(item.name);
@@ -78,11 +79,11 @@ DBController.storeData = async (req, res, next) => {
       final.push(formatted);
     }
     const newData = await Data.create({
+      userId: userId,
       data: {dataArray: final}, 
-      time: Date.now(), 
-      UserId: userId,  
+      time: Date.now(),   
     })
-    res.locals.metrics_data = {data: final, time: Date.now()};
+    res.locals.metrics_data = {data: final, time: Date.now(), userId: userId};
     return next();
   }
   catch (err){
@@ -93,9 +94,10 @@ DBController.storeData = async (req, res, next) => {
 DBController.getData = async (req, res, next) => {
   try{
     const userId = req.cookies.session;
+    console.log('userId', userId);
     let results;
     if(userId){
-      results = await Data.find({UserId: userId});
+      results = await Data.find({userId: userId});
     }
     else results = await Data.find({});
     res.locals.results = results;
