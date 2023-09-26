@@ -68,6 +68,7 @@ DBController.storeData = async (req, res, next) => {
   //const userID = req.cookies.userID;
   try{
     const array = parseData(res.locals.metrics_data);
+    const userId = req.cookies.session;
     //console.log(data);
     const final = [];
     for(item of array){
@@ -78,7 +79,8 @@ DBController.storeData = async (req, res, next) => {
     }
     const newData = await Data.create({
       data: {dataArray: final}, 
-      time: Date.now()
+      time: Date.now(), 
+      UserId: userId,  
     })
     res.locals.metrics_data = {data: final, time: Date.now()};
     return next();
