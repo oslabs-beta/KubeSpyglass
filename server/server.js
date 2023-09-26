@@ -6,6 +6,7 @@ const app = express();
 const PORT = 4000;
 
 const metricRouter = require('./routers/metricRouter');
+const db = require('./db.js');
 
 app.use(express.json());
 
