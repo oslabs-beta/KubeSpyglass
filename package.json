@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "dev": "concurrently \"vite --host\" \"nodemon server/server.js\"",
-    "start": "concurrently \"vite --host\" \"node server/server.js\"",
+    "start": " \"node server/server.js\"",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -43,8 +43,9 @@
     "prom-client": "^14.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0"
-
+    "react-router-dom": "^6.15.0",
+    "vite": "^4.4.9",
+    "vite-plugin-terminal": "^1.1.0"
     
   }
 }
