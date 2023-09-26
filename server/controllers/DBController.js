@@ -7,33 +7,22 @@ const parseData = (data) => {
   const result = [];
   for(string of data){
     //console.log(i++, string);
-    const strings = string.split(' ');
+    const strings = string.split('\n');
     const strs = [];
     for(let str of strings){
-      const arr = str.split('\n');
-      for(item of arr){
-        strs.push(item)
-      }
+      const arr = str.split(' ');
+      strs.push(arr);
     }
-    let inComment = false
     for(let i = 0; i < strs.length; i++){
-      if(strs[i] === '#'){
-        if(inComment){
-          inComment = false;
-          i += 3;
-        } 
-        else inComment = true;
-        continue;
-      }
-      if(inComment) continue;
-      result.push({name: strs[i], val: strs[++i], otherVal: strs[++i]});
+      if(strs[i].length > 3 || strs[i][0] === '#') continue;
+      result.push({name: strs[i][0], val: strs[i][1], otherVal: strs[i][2]});
     }
     // for(let res of result){
     //   console.log(res);
     // }
-    result.pop();
-    
   }
+  result.pop();
+  result.pop();
   return result;
 }
 
@@ -69,6 +58,7 @@ DBController.storeData = async (req, res, next) => {
   //const userID = req.cookies.userID;
   try{
     const array = parseData(res.locals.metrics_data);
+    //console.log(array);
     const userId = req.cookies.session;
     console.log('userid: ', userId);
     const final = [];
