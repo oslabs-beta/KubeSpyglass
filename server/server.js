@@ -1,8 +1,7 @@
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 const MonitoringRouter = require('./routers/MonitoringRouter');
-
 
 const app = express();
 const PORT = 4000;
@@ -10,7 +9,7 @@ const PORT = 4000;
 const metricRouter = require('./routers/metricRouter');
 const userRouter = require('./routers/userRouter');
 const db = require('./db.js');
-app.use(express.json()); 
+app.use(express.json());
 app.use(cookieParser());
 
 //app.use('/', db);
@@ -24,7 +23,7 @@ app.use(cors());
  * On start up display main page
  */
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/index.html'));
+  res.sendFile(path.resolve(__dirname, '../dist/index.html'));
 });
 
 app.use('/monitoring', MonitoringRouter);
