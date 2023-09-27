@@ -9,17 +9,9 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'; // Import the
 
 const darkGreyColor = '#444';
 
-// const TopNavBar = () => {
-//   const [anchorEl, setAnchorEl] = React.useState(null);
-//   const open = Boolean(anchorEl);
-
 const TopNavBar: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-
-  // const handleMenuClick = (event) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
 
   const handleMenuClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -45,15 +37,15 @@ const TopNavBar: React.FC = () => {
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Kube's Spyglass
         </Typography>
-        <Box
+        {/* <Box
           component="div" // Specify the component type
           onClick={handleMenuClick}
           sx={boxSx}
-        >
-          View
-          <ArrowDropDownIcon /> {/* Add the ArrowDropDown icon */}
-        </Box>
-        <Menu
+        > */}
+          {/* View */}
+          {/* <ArrowDropDownIcon /> Add the ArrowDropDown icon */}
+        {/* </Box> */}
+        {/* <Menu
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
@@ -61,7 +53,7 @@ const TopNavBar: React.FC = () => {
         >
           <MenuItem>Graph</MenuItem>
           <MenuItem>Table</MenuItem>
-        </Menu>
+        </Menu> */}
       </Toolbar>
     </AppBar>
   );
