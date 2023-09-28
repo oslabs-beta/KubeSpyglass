@@ -37,8 +37,10 @@ The Spyglass tool is designed to streamline and enhance your experience with Kub
 * visualize the structure of your Kubernetes cluster
 * monitor key performance metrics accross your cluster 
 * alert you to critical conditions in key health metrics. 
-<br>
+
 Choose the tool most suited for your needs: 
+<br>
+<br>
 <div align = "center">
   <img src = "https://static.wikia.nocookie.net/pirates/images/c/cd/AWEJackBarbossaTelescopePromo.jpg/revision/latest?cb=20130424213705">
 </div>
