@@ -69,6 +69,10 @@ User interactions with you Kubernetes instance are secured with BCrypt, HTTPS, a
 
 <img src = "./Media/graphs.gif">
 
+# Anticipated Release
+
+Spyglass 1.0 is forthcoming and will likely be released later this year. Stay tuned for further announcements. 
+
 # Requirements
 Requires Helm v.3.12.0 <br>
 Please free up the following ports:
