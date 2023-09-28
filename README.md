@@ -44,6 +44,7 @@ Choose the tool most suited for your needs:
   <img src = "https://static.wikia.nocookie.net/pirates/images/c/cd/AWEJackBarbossaTelescopePromo.jpg/revision/latest?cb=20130424213705">
 </div>
 <br>
+
 Spyglass comes with two options for Kubernetes metric monitoring. 
 * A fast ultra-lightweight monitoring option using core API metrics. 
 * A powerful comprehensive monitoring option using Prometheus and Grafana. 
