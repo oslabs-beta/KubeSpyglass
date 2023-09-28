@@ -14,7 +14,7 @@ export default function StructureVisualizationContainer({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/structure');
+        const response = await axios.get('http://localhost:4000/monitoring/structure/static');
         const data = response.data;
 
         // Initialize an empty tree structure
