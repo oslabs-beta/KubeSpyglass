@@ -64,7 +64,7 @@ User interactions with you Kubernetes instance are secured with BCrypt, HTTPS, a
 
 # User Experience 
 
-<img src = "./Gifs/graphs.gif">
+<img src = "./Media/graphs.gif">
 
 # Requirements
 Requires Helm v. 
