@@ -62,7 +62,7 @@ User interactions with you Kubernetes instance are secured with BCrypt, HTTPS, a
 
 # User Experience 
 
-
+<img src = "./Gifs/graphs.gif">
 
 # Requirements
 Requires Helm v. 
@@ -72,3 +72,6 @@ Technology  | Port Number
 Grafana  | 3000
 server | 4000
 Spyglass  | 8080
+
+# Publications
+Read our Medium Article [Here]('')!
