@@ -1,2 +1,4 @@
 node_modules
 .env
+__tests__/node_modules
+App/node_modules
