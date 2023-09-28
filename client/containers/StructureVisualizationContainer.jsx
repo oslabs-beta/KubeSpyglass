@@ -22,7 +22,8 @@ export default function StructureVisualizationContainer({
           name: 'K8s Clusters',
           children: [],
         };
-        if (showNamespaces && data.namespaces) {
+        if (data.namespaces) {
+            console.log('namespaces', data.namespaces);
             const namespaces = {
                       name: 'Namespaces',
                       children: [],
@@ -39,52 +40,53 @@ export default function StructureVisualizationContainer({
             });
             tree.children.push(namespaces);
         }
-        if (showNodes && data.nodes) {
+        if (data.nodes) {
+        console.log('data.nodes: ', data.nodes);
           const nodes = {
             name: 'Nodes',
             children: [],
           };
           
-          if (showPods && data.pods) {
+          if (data.pods) {
+            console.log('data.pods: ', data.pods);
             data.nodes.forEach((node) => {
               const nodeItem = {
                 name: node.name,
                 attributes: node.spec,
                 children: [],
               };
-              if (showPods && data.pods) {
                  data.pods.forEach((pod) => {
                      const podItem = {
                           name: '    ' + pod.name, // Add spaces before the name
-                          attributes: pod.spec,
+                          attributes: 'a pod',
                           children: [],
                         };
 
-                        if (showPods) {
-                          pod.containers.forEach((container) => {
-                            const containerItem = {
-                              name: '        ' + container.name, // Add more spaces as needed
-                              attributes: container,
-                                }
-                            podItem.children.push(containerItem);
-                          });
-                        }
+                        
+//                           pod.containers.forEach((container) => {
+//                             const containerItem = {
+//                               name: '        ' + container.name, // Add more spaces as needed
+//                               attributes: container,
+//                                 }
+//                             podItem.children.push(containerItem);
+//                           });
                         nodeItem.children.push(podItem);
                   });
-                  }
                   nodes.children.push(nodeItem);
                 });
-          }
-          tree.children.push(nodes);
-        }
-        setTreeData(tree);
-      } catch (error) {
+                tree.children.push(nodes);
+                }
+            }
+        
+       console.log('tree is: ', tree);
+       setTreeData(tree);
+    } 
+    catch (error) {
         console.error('Error fetching data:', error);
       }
-    };
-
+    };
     fetchData();
-  }, [showCluster, showNodes, showPods, showNamespaces]);
+  }, []);
 
   const handleNamespaceClick = (namespace) => {
     // Set the clicked namespace as the selected namespace
