@@ -22,13 +22,29 @@ export default function StructureVisualizationContainer({
           name: 'K8s Clusters',
           children: [],
         };
-
+        if (showNamespaces && data.namespaces) {
+            const namespaces = {
+                      name: 'Namespaces',
+                      children: [],
+            };
+            data.namespaces.forEach((namespace) => {
+                      // Display the namespace as a child of the node
+              const namespaceItem = {
+                   attributes: {
+                     namespace: namespace, // Keep the 'namespace:' unindented
+                   },
+                   children: [] // Create an array to hold the attributes with spacing
+             };
+            namespaces.children.push(namespaceItem);
+            });
+            tree.children.push(namespaces);
+        }
         if (showNodes && data.nodes) {
           const nodes = {
             name: 'Nodes',
             children: [],
           };
-
+          
           if (showPods && data.pods) {
             data.nodes.forEach((node) => {
               const nodeItem = {
@@ -36,26 +52,9 @@ export default function StructureVisualizationContainer({
                 attributes: node.spec,
                 children: [],
               };
-
-              if (showNamespaces && data.namespaces) {
-                const namespaces = {
-                  name: 'Namespaces',
-                  children: [],
-                };
-
-                data.namespaces.forEach((namespace) => {
-                  // Display the namespace as a child of the node
-                  const namespaceItem = {
-                    attributes: {
-                      namespace: namespace, // Keep the 'namespace:' unindented
-                    },
-                    children: [] // Create an array to hold the attributes with spacing
-                  };
-
-                  if (showPods && data.pods) {
-                    data.pods.forEach((pod) => {
-                      if (pod.namespace === namespace.name) {
-                        const podItem = {
+              if (showPods && data.pods) {
+                 data.pods.forEach((pod) => {
+                     const podItem = {
                           name: '    ' + pod.name, // Add spaces before the name
                           attributes: pod.spec,
                           children: [],
@@ -66,29 +65,18 @@ export default function StructureVisualizationContainer({
                             const containerItem = {
                               name: '        ' + container.name, // Add more spaces as needed
                               attributes: container,
-                            };
+                                }
                             podItem.children.push(containerItem);
                           });
                         }
-
-                        namespaceItem.children.push(podItem);
-                      }
-                    });
+                        nodeItem.children.push(podItem);
+                  });
                   }
-
-                  namespaces.children.push(namespaceItem);
+                  nodes.children.push(nodeItem);
                 });
-
-                nodeItem.children.push(namespaces);
-              }
-
-              nodes.children.push(nodeItem);
-            });
           }
-
           tree.children.push(nodes);
         }
-
         setTreeData(tree);
       } catch (error) {
         console.error('Error fetching data:', error);
