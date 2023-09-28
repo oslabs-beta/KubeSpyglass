@@ -18,7 +18,7 @@
   <img src='https://img.shields.io/badge/Grafana-black?style=for-the-badge&logo=grafana&logoColor=orange'/>
   <img src='https://img.shields.io/badge/Helm-blue?style=for-the-badge&logo=helm&logoColor=white'/>
   <img src="https://img.shields.io/badge/MongoDB-green?style=for-the-badge&logo=mongodb&logoColor=white">
-  <img src="./Media/bcrypt2.png">
+  <img src="./Media/bcrypt.png">
 </div>
 
 # Introduction
