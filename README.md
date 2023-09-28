@@ -67,8 +67,16 @@ User interactions with you Kubernetes instance are secured with BCrypt, HTTPS, a
 
 # User Experience 
 
+## Visualize the Structure of your cluster
+
 <img src = "./Media/structure.gif">
+
+## Seamlessly install prometheus and grafana
+
 <img src = "./Media/install.gif">
+
+## Visualize your metrics with grafana visualizations
+
 <img src = "./Media/graphs.gif">
 
 # Anticipated Release
