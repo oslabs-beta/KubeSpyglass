@@ -67,7 +67,7 @@ User interactions with you Kubernetes instance are secured with BCrypt, HTTPS, a
 <img src = "./Media/graphs.gif">
 
 # Requirements
-Requires Helm v. 
+Requires Helm v.3.12.0 <br>
 Please free up the following ports:
 Technology  | Port Number
 ------------- | -------------
