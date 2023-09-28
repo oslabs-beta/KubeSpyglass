@@ -94,4 +94,4 @@ server | 4000
 Spyglass  | 8080
 
 # Publications
-Read our Medium Article [Here]("https://medium.com/@etoussaint/spyglass-an-efficient-way-to-view-your-metrics-d9cc0c7389e")!
+Read our Medium Article [Here](https://medium.com/@etoussaint/spyglass-an-efficient-way-to-view-your-metrics-d9cc0c7389e)!
