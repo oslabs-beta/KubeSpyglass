@@ -46,6 +46,8 @@ It also comes with a helpful GUI to view and interact with your Kubernetes Clust
 * Ports
 * Essential connections
 <br>
+## Security
+
 User interactions with you Kubernetes instance are secured with BCrypt, HTTPS, and Kubernetes ClusterRole security, so you can rest assured that your cluster information stays secure.
 
 ## Developer features
