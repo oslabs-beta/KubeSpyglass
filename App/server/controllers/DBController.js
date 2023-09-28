@@ -13,7 +13,7 @@ const parseName = (string) => {
       sliceStart = i + 1;
     }
     if(i === string.length - 1){
-      result.metric = string;
+      if(!result.metric) result.metric = string;
     }
     if(string[i] === '='){
       sliceEnd = i;
@@ -64,6 +64,14 @@ const parseData = (data) => {
   return final;
 }
 
+const parseTSData = (array, time) => {
+  const finalData = {};
+  for(const measure of array){
+    if(!finalData[measure.metric]) finalData[measure.metric] = [{...measure, time}];
+    else finalData[measure.metric].push({...measure, time});
+  }
+  return finalData;
+};
 
 //console.log(parseName("container_cpu_usage_seconds_total{container=\"kube-apiserver\",namespace=\"kube-system\",pod=\"kube-apiserver-kind-control-plane\"}"));
 
@@ -72,15 +80,18 @@ DBController.storeData = async (req, res, next) => {
   //const userID = req.cookies.userID;
   try{
     const parsed = parseData(res.locals.metrics_data);
+    const time = Date.now()
+    const sorted = parseTSData(parsed, time);
+    console.log(sorted);
     //console.log(array);
     const userId = req.cookies.session;
     console.log('userid: ', userId);
     const newData = await Data.create({
       userId: userId,
-      data: {dataArray: parsed}, 
-      time: Date.now(),   
+      data: sorted, 
+      time,   
     })
-    res.locals.metrics_data = {data: parsed, time: Date.now(), userId: userId};
+    res.locals.metrics_data = {data: sorted, time, userId: userId};
     return next();
   }
   catch (err){

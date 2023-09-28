@@ -27,17 +27,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/dist/index.html'));
 });
 
-// Create an endpoint to serve the JSON data
-app.get('/api/structure', (req, res) => {
-  try {
-    const data = fs.readFileSync(path.resolve(__dirname, '../sampleStructure.json'), 'utf-8');
-    const jsonData = JSON.parse(data);
-    res.json(jsonData);
-  } catch (error) {
-    console.error('Error reading JSON file:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
 
 app.use('/monitoring', MonitoringRouter);
 
