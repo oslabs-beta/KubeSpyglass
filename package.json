@@ -42,6 +42,7 @@
     "postgres": "^3.3.5",
     "prom-client": "^14.2.0",
     "react": "^18.2.0",
+    "react-d3-tree": "^3.6.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0"
   }

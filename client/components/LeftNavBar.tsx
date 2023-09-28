@@ -4,10 +4,21 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import { styled } from '@mui/system';
-import Switch from '@mui/material/Switch'; 
+import Switch from '@mui/material/Switch';
 
 const darkGreyColor = '#444';
 const lighterGreyColor = '#667';
+
+interface LeftNavBarProps {
+  showCluster: boolean;
+  showNodes: boolean;
+  showPods: boolean;
+  showNamespaces: boolean;
+  setShowCluster: (value: boolean) => void;
+  setShowNodes: (value: boolean) => void;
+  setShowPods: (value: boolean) => void;
+  setShowNamespaces: (value: boolean) => void;
+}
 
 const StyledLeftNavBarContainer = styled('div')({
   display: 'flex',
@@ -25,39 +36,56 @@ const StyledListItem = styled(ListItem)({
   },
 });
 
-// const LeftNavBar = () => {
-//   const [podToggle, setPodToggle] = useState(false); 
-//   const [serviceToggle, setServiceToggle] = useState(false); 
-
-const LeftNavBar: React.FC = () => {
-  const [podToggle, setPodToggle] = useState<boolean>(false);
-  const [serviceToggle, setServiceToggle] = useState<boolean>(false);
-
-
-  const handlePodToggle = () => {
-    setPodToggle(!podToggle); // Toggle the state
-  };  
-
-  const handleServiceToggle = () => {
-    setServiceToggle(!serviceToggle); // Toggle the state
-  };
-
+const LeftNavBar: React.FC<LeftNavBarProps> = ({
+  showCluster,
+  showNodes,
+  showPods,
+  showNamespaces,
+  setShowCluster,
+  setShowNodes,
+  setShowPods,
+  setShowNamespaces,
+}) => {
   return (
     <StyledLeftNavBarContainer>
       <List>
+        {/* <StyledListItem>
+          <ListItemText primary="Cluster" />
+          <Switch
+            checked={showCluster}
+            onChange={() => {
+              setShowCluster(!showCluster);
+            }}
+            color="primary"
+          />
+        </StyledListItem> */}
         <StyledListItem>
           <ListItemText primary="Nodes" />
           <Switch
-            checked={podToggle}
-            onChange={handlePodToggle}
+            checked={showNodes}
+            onChange={() => {
+              setShowNodes(!showNodes);
+            }}
             color="primary"
           />
         </StyledListItem>
         <StyledListItem>
           <ListItemText primary="Pods" />
           <Switch
-            checked={serviceToggle}
-            onChange={handleServiceToggle}
+            checked={showPods}
+            onChange={() => {
+              setShowPods(!showPods);
+            }}
+            color="primary"
+          />
+        </StyledListItem>
+        <StyledListItem>
+          <ListItemText primary="Namespaces" />
+          <Switch
+            checked={showNamespaces}
+            onChange={() => {
+              setShowNamespaces(!showNamespaces);
+            }}
             color="primary"
           />
         </StyledListItem>
