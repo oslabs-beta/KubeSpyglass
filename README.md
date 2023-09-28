@@ -39,7 +39,8 @@ The Spyglass tool is designed to streamline and enhance your experience with Kub
 * monitor key performance metrics accross your cluster 
 * alert you to critical conditions in key health metrics. 
 
-Choose the tool most suited for your needs: 
+### Choose the tool most suited for your needs: 
+
 <br>
 <div align = "center">
   <img src = "./Media/2spyglasses.jpg">
