@@ -1,4 +1,4 @@
-# KubeSpyglass
+# (Kube)Spyglass
 
 # Technology Stack 
 <div align="center">
@@ -24,8 +24,10 @@
 
 
 # Features
-## User-facing features
+## User features
+
 The Spyglass tool is designed to streamline and enhance your experience with Kubernetes cluster management. We offer tools to visualize the structure of your Kubernetes cluster, monitor key performance metrics accross your cluster, and alerting for key health metrics. 
+<br>
 Choose the tool most suited for your needs: 
 <div align = "center">
   <img src = "https://static.wikia.nocookie.net/pirates/images/c/cd/AWEJackBarbossaTelescopePromo.jpg/revision/latest?cb=20130424213705">
@@ -35,10 +37,23 @@ Spyglass comes with two options for Kubernetes metric monitoring.
 * A fast ultra-lightweight monitoring option using core API metrics. 
 * A powerful comprehensive monitoring option using Prometheus and Grafana. 
 
-## User features
+It also comes with a helpful GUI to view and interact with your Kubernetes Cluster Structure and display:
+* Nodes
+* Services
+* Namespaces
+* Pods
+* Containers 
+* Ports
+* Essential connections
+<br>
+User interactions with you Kubernetes instance are secured with BCrypt, HTTPS, and Kubernetes ClusterRole security, so you can rest assured that your cluster information stays secure.
 
 ## Developer features
-* Comprehensive Testing Suite: Spyglass's  testing suite (using Jest, Supertest and React Testing Library) enables future developers to assess code functionality throughout the frontend and backend of the application.
+* Comprehensive Testing Suite: Spyglass's testing suite (using Jest, Supertest, and React Testing Library) enables future developers to assess code functionality throughout the frontend and backend of the application.
+
+# User Experience 
+
+
 
 # Requirements
 Requires Helm v. 
