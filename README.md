@@ -26,7 +26,10 @@
 # Features
 ## User features
 
-The Spyglass tool is designed to streamline and enhance your experience with Kubernetes cluster management. We offer tools to visualize the structure of your Kubernetes cluster, monitor key performance metrics accross your cluster, and alerting for key health metrics. 
+The Spyglass tool is designed to streamline and enhance your experience with Kubernetes cluster management. We offer tools to:
+* visualize the structure of your Kubernetes cluster
+* monitor key performance metrics accross your cluster 
+* alert you to critical conditions in key health metrics. 
 <br>
 Choose the tool most suited for your needs: 
 <div align = "center">
