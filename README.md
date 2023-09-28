@@ -67,6 +67,8 @@ User interactions with you Kubernetes instance are secured with BCrypt, HTTPS, a
 
 # User Experience 
 
+<img src = "./Media/structure.gif">
+<img src = "./Media/install.gif">
 <img src = "./Media/graphs.gif">
 
 # Anticipated Release
