@@ -45,13 +45,12 @@ It also comes with a helpful GUI to view and interact with your Kubernetes Clust
 * Containers 
 * Ports
 * Essential connections
-<br>
-## Security
-
-User interactions with you Kubernetes instance are secured with BCrypt, HTTPS, and Kubernetes ClusterRole security, so you can rest assured that your cluster information stays secure.
 
 ## Developer features
-* Comprehensive Testing Suite: Spyglass's testing suite (using Jest, Supertest, and React Testing Library) enables future developers to assess code functionality throughout the frontend and backend of the application.
+Comprehensive Testing Suite: Spyglass's testing suite (using Jest, Supertest, and React Testing Library) enables future developers to assess code functionality throughout the frontend and backend of the application.
+
+## Security
+User interactions with you Kubernetes instance are secured with BCrypt, HTTPS, and Kubernetes ClusterRole security, so you can rest assured that your cluster information stays secure.
 
 # User Experience 
 
