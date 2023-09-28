@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-//User name: TonsaUsers
-//Pass: AWholeLot
 const MONGO_URI = process.env.DB_URI;
 mongoose
   .connect(MONGO_URI, {
