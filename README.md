@@ -23,7 +23,9 @@
 # Introduction
 In an era of technological advancements, it is important to remember that hardware is just as important a part of the process as software. Maintaining the health of your system at optimal levels can help keep costs and interruptions at a minimum, while ensuring maximal performance and longevity. There exist several fantastic tools which can provide the information necessary for this monitoring, but where they excel in effectiveness, they are also weighed down by the sheer quantity of data they provide. With an incredibly large array of complex metrics to choose from and parse, it can be a daunting and exhausting task simply to set up the monitoring. 
 <br>
+<br>
 In order to make this process simpler and more efficient to interface with, we have developed KubeSpyglass (heretofore referred to as Spyglass). Spyglass aims to provide a clean, simple user experience which will enable users to seamlessly install a suite of monitoring and visualization tools on their systems without needing to go through the hassle of configuring it themselves. But how does it do this?
+<br>
 <br>
 Spyglass is built to operate on systems running Kubernetes container orchestration. Spyglass provides threefold utility in the form of a simple visualization of the Kubernetes cluster structure, a lightweight monitoring visualization of four core Kubernetes system metrics, and a one-button installation process for both Prometheus and Grafana.
 
