@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 //User name: TonsaUsers
 //Pass: AWholeLot
-const MONGO_URI = `mongodb+srv://TonsaUsers:AWholeLot@cluster0.evdkirk.mongodb.net/`;
+const MONGO_URI = process.env.DB_URI;
 mongoose
   .connect(MONGO_URI, {
     dbName: 'Users', 
